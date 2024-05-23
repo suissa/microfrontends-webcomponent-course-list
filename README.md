@@ -82,5 +82,6 @@ module.exports = {
 
 ```
 yarn
+npx tailwindcss init
 yarn start
 ```
