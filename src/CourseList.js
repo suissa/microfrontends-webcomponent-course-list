@@ -12,11 +12,19 @@ const CourseList = () => {
         setCourses(data);
         setFilteredCourses(data);
       });
+  }, []);
 
+  useEffect(() => {
     const handleFilterCourses = (event) => {
       const query = event.detail.query.toLowerCase();
       if (query) {
-        setFilteredCourses(courses.filter(course => course.name.toLowerCase().includes(query)));
+        setFilteredCourses(courses.filter(course => {
+          console.log("query:", query);
+          console.log("course:", course);
+          const __course = course.title.toLowerCase().includes(query);
+          console.log("__course:", __course);
+          return __course;
+        }));
       } else {
         setFilteredCourses(courses);
       }
